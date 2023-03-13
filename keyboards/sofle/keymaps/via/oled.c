@@ -24,8 +24,13 @@
 bool process_record_user(uint16_t keycode, keyrecord_t * record) {
     if (record->event.pressed) {
         oled_clear();
+        const char* name = get_key_name(keycode);
         oled_write_P(PSTR("\n\n"), false);
-        oled_write_P(get_key_name(keycode), false);
+        if (name == NULL) {
+            oled_write(get_u8_str(keycode, ' '), false);
+        } else {
+            oled_write_P(get_key_name(keycode), false);
+        }
     }
     return true;
 }

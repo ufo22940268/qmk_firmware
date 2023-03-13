@@ -301,6 +301,6 @@ const char* get_key_name(uint16_t code) {
         case 24333: return PSTR("S2_DEC");
         case 24336: return PSTR("FN_MO13");
         case 24337: return PSTR("FN_MO2");
-        default: return PSTR("Unknown");
+        default: return NULL;
     }
 }
